@@ -1,4 +1,4 @@
-import pool from '../utils/database.js';
+import pool from '../utils/db.js';
 
 export async function createUser(req, res) {
     const { name, email, password_hash } = req.body;
@@ -9,6 +9,7 @@ export async function createUser(req, res) {
     );
     
     res.status(201).json(result.rows[0]);
+    console.log('User created with ID:', result.rows[0].id);
 }
 
 export async function getUserById(req, res) {
