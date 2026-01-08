@@ -5,8 +5,7 @@ import { authMiddleware } from '../middlewares/auth.js';
 
 const userRouter = express.Router();
 
-userRouter.post('/', createUser);
 userRouter.use(authMiddleware)
-userRouter.get('/me', validateUUID('user_id'), getMe);
+userRouter.get('/me', getMe);
 
 export default userRouter;
