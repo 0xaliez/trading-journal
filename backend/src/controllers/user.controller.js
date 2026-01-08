@@ -12,11 +12,11 @@ export async function createUser(req, res) {
     console.log('User created with ID:', result.rows[0].id);
 }
 
-export async function getUserById(req, res) {
-    const { user_id } = req.params;
+export async function getMe(req, res) {
+    const userId = req.user.user_id;
 
     const result = await pool.query(
-        'SELECT id, name, email, created_at FROM users WHERE id = $1', [user_id]
+        'SELECT id, name, email, created_at FROM users WHERE id = $1', [userId]
     )
 
     if (result.rows.length === 0) {
