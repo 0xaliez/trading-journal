@@ -1,0 +1,4 @@
+GET http://localhost:3000/accounts/user/e9395951-b870-4d75-8365-61f211775c85
+Content-Type: application/json
+
+### Response
